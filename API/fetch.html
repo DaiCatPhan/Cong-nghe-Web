@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body>
+    <h1>REST API</h1>
+
+    <ul id="post-block"></ul>
+</body>
+</html>
+
+<script>
+
+var postApi = 
+    'https://jsonplaceholder.typicode.com/posts';
+
+fetch(postApi)
+    .then(function(response){
+        return response.json();
+        // JSON.parse : JSON -> javascript
+    })
+    .then(function(posts){
+        var htmls = posts.map(function (post) {
+            return `<li>
+                <h2>${post.title}</h2>
+                <h2>${post.body}</h2> 
+            </li>`;
+        })
+        var html = htmls.join("");
+        document.getElementById('post-block').innerHTML = html;
+    })
+    .catch(function(err){
+        console.log("Co loi !!!");
+    })
+
+    // JSON
+    var json= '["Phan Dai Cat","Phan Thi Tram Anh"]';
+    var obj = '{"name": "Phan Than Y HOa Da","age":18}'
+
+    var ar = ["javascript ","PHP"]
+
+    console.log(json);
+    console.log(obj);
+
+    // doi json sang javascript
+    console.log(JSON.parse(json));
+    console.log(JSON.parse(obj));
+
+
+    // chuyen javasript sang json
+    console.log( JSON.stringify(ar));
+
+
+    /// PROMISE
+
+
+</script>
