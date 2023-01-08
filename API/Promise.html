@@ -10,9 +10,50 @@
     <h1>Phan Dai Cat</h1>
 </body>
     <script>
+        // van de de su dung promise
         setTimeout(function(){
-            console.log(1);
-        },1000);
-        console.log(2);
+            console.log((1));
+            setTimeout(function(){
+                console.log((2));
+                setTimeout(function(){
+                console.log((3));
+                },1000)
+            },1000)
+        },1000)
+
+        // PROMISE
+
+        //1. spending :trang thai cho doi
+        //2.Fulfilled: trang thai thanh cong
+        //3. Rejected : trang thai that bai
+        var promise = new Promise(
+            // executor
+            function(resolve,reject){ // resolse : thanh cong . reject : that bai
+                // logic
+                // thanh cong : resolse()
+                // that bai : reject()
+                resolve([
+                    {
+                        id: 1,
+                        name: "Phan Dai Cat"
+                    }
+                ])
+            }
+        );
+
+        promise 
+            .then(function(courses){
+                console.log(courses);
+            })
+            .catch(function(){
+                console.log("That bai");
+            })
+            .finally(function(){
+                console.log("Done");
+            });
+
+
+
+
     </script>
 </html>
